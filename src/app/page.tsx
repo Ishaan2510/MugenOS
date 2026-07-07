@@ -104,7 +104,7 @@ const Home: React.FC = () => {
     for (let i = 0; i < d.data.length; i += 4) {
       const v = Math.random() * 255;
       d.data[i] = d.data[i + 1] = d.data[i + 2] = v;
-      d.data[i + 3] = 45;
+      d.data[i + 3] = 30;
     }
     ctx.putImageData(d, 0, 0);
     setNoiseUrl(c.toDataURL());
@@ -118,27 +118,6 @@ const Home: React.FC = () => {
   }, []);
 
   useEffect(() => { isBreakRef.current = isBreak; }, [isBreak]);
-
-  useEffect(() => {
-    if (!pomOn) return;
-    const id = setInterval(() => {
-      setPomSec((p) => {
-        if (p <= 1) {
-          setFlash(true);
-          playChime();
-          setTimeout(() => setFlash(false), 600);
-          const wasBreak = isBreakRef.current;
-          const goingToBreak = !wasBreak;
-          setIsBreak(goingToBreak);
-          isBreakRef.current = goingToBreak;
-          if (wasBreak) { setCycles((c) => c + 1); return workMins * 60; }
-          return breakMins * 60;
-        }
-        return p - 1;
-      });
-    }, 1000);
-    return () => clearInterval(id);
-  }, [pomOn, workMins, breakMins]);
 
   // Reset video index when playlist changes
   useEffect(() => { setVidIdx(0); }, [plIdx]);
@@ -171,6 +150,27 @@ const Home: React.FC = () => {
       beep(1100, 0.2, 0.4);
     } catch {}
   }, []);
+
+  useEffect(() => {
+    if (!pomOn) return;
+    const id = setInterval(() => {
+      setPomSec((p) => {
+        if (p <= 1) {
+          setFlash(true);
+          playChime();
+          setTimeout(() => setFlash(false), 600);
+          const wasBreak = isBreakRef.current;
+          const goingToBreak = !wasBreak;
+          setIsBreak(goingToBreak);
+          isBreakRef.current = goingToBreak;
+          if (wasBreak) { setCycles((c) => c + 1); return workMins * 60; }
+          return breakMins * 60;
+        }
+        return p - 1;
+      });
+    }, 1000);
+    return () => clearInterval(id);
+  }, [pomOn, workMins, breakMins, playChime]);
 
   // ---- HANDLERS ----
 
@@ -335,7 +335,7 @@ const Home: React.FC = () => {
           {/* TODO */}
           <div className="glass-card todo-card">
             <div className="widget-header">
-              <span className="widget-label" style={{ color: "#00e5ff" }}>// TODO</span>
+              <span className="widget-label" style={{ color: "#00e5ff" }}>{"// TODO"}</span>
               <div className="widget-header-right">
                 {doneCount > 0 && <button className="btn-ghost" onClick={clearDone}>CLEAR {doneCount} DONE</button>}
                 <span className="dim-text">{todos.length} items</span>
