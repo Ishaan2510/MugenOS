@@ -4,13 +4,13 @@
 
 MugenOS turns your new tab into a living, breathing space where anime clips behind film grain, a focus timer that keeps you honest, and a vibe that's entirely yours. No accounts. No cloud. Just your laptop, your clips, your rules.
 
-*Mugen (無限) — Japanese for infinite, limitless.*
+*Mugen (無限) - Japanese for infinite, limitless.*
 
 ---
 
 ## Why this exists
 
-Every productivity tool wants your attention. MugenOS doesn't. It sits quietly in your new tab, plays whatever you want behind a film-grain overlay, counts down your focus sessions, and gets out of the way. It's not an app — it's an atmosphere.
+Every productivity tool wants your attention. MugenOS doesn't. It sits quietly in your new tab, plays whatever you want behind a film-grain overlay, counts down your focus sessions, and gets out of the way. It's not an app, it's an atmosphere.
 
 Built because the default new tab page is the most wasted screen on your computer.
 
@@ -18,14 +18,14 @@ Built because the default new tab page is the most wasted screen on your compute
 
 ## What you get
 
-- **Anime video wallpapers** — Group clips by anime. Select "One Piece" and Zoro, Luffy play in sequence on loop. Select "AOT" and Eren takes over. Add any .mp4 clip you want.
-- **Film grain + CRT scanlines** — Canvas-generated noise overlay that makes everything look cinematic. No external assets needed.
-- **Focus timer** — Pomodoro with configurable work/break durations. Auto-cycles between focus and rest. Tracks completed sessions.
-- **Todo list** — Quick task capture right in your new tab. Add, check off, clear done.
-- **Music player** — Drop .mp3 files in, pick a track, let it play while you work. Hidden entirely if you don't add music.
-- **Quick links** — Your three most-used sites, one click away.
-- **Motivational quotes** — Rotating quotes at the bottom. Customizable.
-- **Translucent everything** — Widgets are glass-thin so your wallpaper shows through. The video is the hero, not the UI.
+- **Anime video wallpapers** - Group clips by anime. Select "One Piece" and Zoro, Luffy play in sequence on loop. Select "AOT" and Eren takes over. Add any .mp4 clip you want.
+- **Film grain + CRT scanlines** - Canvas-generated noise overlay that makes everything look cinematic. No external assets needed.
+- **Focus timer** - Pomodoro with configurable work/break durations. Auto-cycles between focus and rest. Tracks completed sessions.
+- **Todo list** - Quick task capture right in your new tab. Add, check off, clear done.
+- **Music player** - Drop .mp3 files in, pick a track, let it play while you work. Hidden entirely if you don't add music.
+- **Quick links** - Your three most-used sites, one click away.
+- **Motivational quotes** - Rotating quotes at the bottom. Customizable.
+- **Translucent everything** - Widgets are glass-thin so your wallpaper shows through. The video is the hero, not the UI.
 
 ---
 
@@ -52,7 +52,7 @@ npm install
 
 ### 2. Add your video clips
 
-Drop .mp4 files into the `public/` folder. Short clips (3-10 seconds) work perfectly — the grain overlay masks the loop point, so even a 4-second Zoro slash looks like a live wallpaper.
+Drop .mp4 files into the `public/` folder. Short clips (3-10 seconds) work perfectly - the grain overlay masks the loop point, so even a 4-second Zoro slash looks like a live wallpaper.
 
 ### 3. Configure
 
@@ -69,7 +69,7 @@ const PLAYLISTS = [
   { name: "AOT", videos: ["eren_1.mp4", "eren_2.mp4"] },
 ];
 
-// Music (optional — leave empty to hide the player)
+// Music (optional - leave empty to hide the player)
 const MUSIC = [
   { name: "Unravel", file: "music/unravel.mp3" },
 ];
@@ -92,9 +92,34 @@ Open `http://localhost:3000`. Set it as your browser homepage in Chrome Settings
 
 ### 5. (Optional) Deploy to Vercel
 
-Connect the repo to [Vercel](https://vercel.com) for free. Now you can access your dashboard from any device — Mac, Windows, phone — by visiting the URL. No local server needed.
+Connect the repo to [Vercel](https://vercel.com) for free. Now you can access your dashboard from any device - Mac, Windows, phone - by visiting the URL. No local server needed.
 
 ---
+
+## Chrome extension (no server needed)
+
+If you don't want to run `npm run dev` every time:
+
+**Option A: Download the release**
+
+1. Go to [Releases](https://github.com/Ishaan2510/MugenOS/releases)
+2. Download the latest `.zip`
+3. Extract it to a folder
+4. Drop your `.mp4` clips into that folder
+5. Open `chrome://extensions`, enable Developer mode
+6. Click "Load unpacked", select the folder
+7. Open a new tab
+
+**Option B: Build from source**
+
+```bash
+npm run build
+node build-extension.js
+copy public/*.mp4 out/    # Windows
+cp public/*.mp4 out/      # Mac/Linux
+```
+
+Then load the `out/` folder as an unpacked extension in `chrome://extensions`.
 
 ## Where to get clips
 
@@ -105,7 +130,7 @@ You don't need long cinematic edits. Short raw clips work best with the grain ov
 | animeclips.online | Pre-cut raw clips, original framerate, no watermarks | [animeclips.online](https://animeclips.online) |
 | hiitwixtor.com | 1080p clips saved to Google Drive, sorted by character | [hiitwixtor.com](https://hiitwixtor.com) |
 | animeclipsraw.fr | Raw clips with Mega/GDrive links | [animeclipsraw.fr](https://animeclipsraw.fr) |
-| YouTube (via yt-dlp) | Full AMV edits — longer, already cinematic | `pip install yt-dlp` then `yt-dlp -o "public/%(title)s.%(ext)s" "URL"` |
+| YouTube (via yt-dlp) | Full AMV edits - longer, already cinematic | `pip install yt-dlp` then `yt-dlp -o "public/%(title)s.%(ext)s" "URL"` |
 
 ---
 
@@ -113,7 +138,7 @@ You don't need long cinematic edits. Short raw clips work best with the grain ov
 
 ### Change the grain intensity
 
-In `src/app/page.tsx`, find `d.data[i + 3] = 45;` — this controls grain opacity. Lower = subtle (try 20), higher = heavy VHS look (try 60).
+In `src/app/page.tsx`, find `d.data[i + 3] = 45;` - this controls grain opacity. Lower = subtle (try 20), higher = heavy VHS look (try 60).
 
 ### Change video brightness
 
@@ -125,7 +150,7 @@ In `src/app/globals.css`, find `.clock-main`. The `color: rgba(0, 229, 255, 0.4)
 
 ### Change the accent color
 
-The cyan accent `#00e5ff` appears throughout. Search and replace it in globals.css with any color — try `#ff6b35` for orange, `#a855f7` for purple, `#22d3ee` for teal.
+The cyan accent `#00e5ff` appears throughout. Search and replace it in globals.css with any color - try `#ff6b35` for orange, `#a855f7` for purple, `#22d3ee` for teal.
 
 ### Add more quotes
 
@@ -139,11 +164,11 @@ The retro pixel font is `hokageFont.ttf` loaded in `src/app/layout.tsx`. Replace
 
 ## Tech stack
 
-- **Next.js 14** — React framework
-- **TypeScript** — Type safety
-- **Tailwind CSS** — Utility styling
-- **Canvas API** — Grain texture generation (no external image dependency)
-- **Zero external APIs** — Everything runs locally, no accounts, no tracking
+- **Next.js 14** - React framework
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Utility styling
+- **Canvas API** - Grain texture generation (no external image dependency)
+- **Zero external APIs** - Everything runs locally, no accounts, no tracking
 
 ---
 
@@ -169,12 +194,12 @@ MugenOS/
 
 ## Make it yours
 
-This is designed to be forked. The entire personality of the dashboard lives in one config block at the top of `page.tsx`. Change the name, swap the clips, pick your quotes, add your links — and you have something that feels like it was built just for you.
+This is designed to be forked. The entire personality of the dashboard lives in one config block at the top of `page.tsx`. Change the name, swap the clips, pick your quotes, add your links - and you have something that feels like it was built just for you.
 
-If you build something cool with it, open a PR or tag [@Ishaan2510](https://github.com/Ishaan2510) — would love to see what people do with this.
+If you build something cool with it, open a PR or tag [@Ishaan2510](https://github.com/Ishaan2510) - would love to see what people do with this.
 
 ---
 
 ## License
 
-MIT — do whatever you want with it.
+MIT - do whatever you want with it.
