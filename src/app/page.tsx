@@ -238,7 +238,7 @@ const Home: React.FC = () => {
   const pomSecStr = String(pomSec % 60).padStart(2, "0");
   const pomTotal = isBreak ? breakMins * 60 : workMins * 60;
   const pomProg = pomTotal > 0 ? 1 - pomSec / pomTotal : 0;
-  const pomR = 70; const pomCirc = 2 * Math.PI * pomR;
+  const pomR = 65; const pomCirc = 2 * Math.PI * pomR;
   const activeColor = isBreak ? "#39ff14" : "#ff2d7b";
   const doneCount = todos.filter((t) => t.done).length;
 
