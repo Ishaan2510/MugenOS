@@ -2,7 +2,7 @@
 
 **Your browser opens hundreds of times a day. Make the first thing you see something worth looking at.**
 
-MugenOS turns your new tab into a living, breathing space where anime clips behind film grain, a focus timer that keeps you honest, and a vibe that's entirely yours. No accounts. No cloud. Just your laptop, your clips, your rules.
+MugenOS turns your new tab into a living, breathing space where your favorite clips behind film grain, a focus timer that keeps you honest, and a vibe that's entirely yours. No accounts. No cloud. Just your laptop, your clips, your rules.
 
 *Mugen (無限) - Japanese for infinite, limitless.*
 
@@ -26,6 +26,10 @@ Built because the default new tab page is the most wasted screen on your compute
 - **Quick links** - Your three most-used sites, one click away.
 - **Motivational quotes** - Rotating quotes at the bottom. Customizable.
 - **Translucent everything** - Widgets are glass-thin so your wallpaper shows through. The video is the hero, not the UI.
+> **Note:** MugenOS ships without video clips and the clips used by me are also edits of anime clips. Use fan edits and clips
+> available publicly online - don't use direct footage from OTT platforms 
+> or streaming services. Short edits from communities like animeclipsraw.fr which provides clips of all categories you want, 
+> fan montages from YouTube, or any publicly shared clips work perfectly.
 
 ---
 
